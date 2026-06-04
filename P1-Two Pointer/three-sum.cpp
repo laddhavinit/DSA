@@ -5,7 +5,7 @@ using namespace std;
 
 void threesum(vector<int> &arr, vector<vector<int>> &ans){
     for(int i=0;i<arr.size();i++){
-        if(arr[i]>=0){
+        if(arr[i]>0){
             return ;
         }
         while(i>0 && arr[i]==arr[i-1]){
@@ -36,7 +36,7 @@ void threesum(vector<int> &arr, vector<vector<int>> &ans){
 }
 
 int main(){
-    vector<int> arr={-1,0,1,2,-1,-4};
+    vector<int> arr={0,0,0,0};
     vector<vector<int>> ans;
     sort(arr.begin(),arr.end());
     threesum(arr,ans);
