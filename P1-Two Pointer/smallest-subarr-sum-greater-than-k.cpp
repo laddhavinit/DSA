@@ -23,4 +23,5 @@ int main(){
     int target=7;
     cout<<func(v,target);
     return 0;
+    
 }
