@@ -11,6 +11,7 @@ string minwindowsubstr(string s, string t){
     for(int i=0;i<t.size();i++){
         v1[t[i]]++;
     }
+    
     for(int i=0;i<256;i++){
         if(v1[i]>0){
             req++;
