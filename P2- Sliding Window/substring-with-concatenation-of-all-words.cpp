@@ -11,21 +11,29 @@ void substring(string s, vector<string> words, vector<int> &ans){
     }
     for (int i = 0; i < wl; i++)
     {
-        int start=i;
+        int start=i, count=0;
         unordered_map<string, int> m2;
         for(int j=i;j<=s.size()-wl;j+=wl){
             string helper=s.substr(j,wl);
             if(m1.count(helper)>0){
                 m2[helper]++;
-                if(m1==m2){
-                    ans.push_back(start);
-                    m2[s.substr(start,wl)]--;
+                count++;
+                while(m2[helper]>m1[helper]){
+                    m2[s.substr(start, wl)]--;
+                    count--;
                     start+=wl;
+                }
+                if(count==wc){
+                    ans.push_back(start);
+                    m2[s.substr(start, wl)]--;
+                    start+=wl;
+                    count--;
                 }
             }
             else{
                 m2.clear();
                 start=j+wl;
+                count=0;
             }
         }
     }
@@ -33,7 +41,7 @@ void substring(string s, vector<string> words, vector<int> &ans){
 }
 
 int main(){
-    vector<string> words = {"foo","bar"};
+    vector<string> words = {"bar","foo"};
     string s="barfoothefoobarman";
     vector<int> ans;
     substring(s,words, ans);
