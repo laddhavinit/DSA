@@ -20,6 +20,7 @@ int main(){
         cout<< maxans;
         return 0;
     }
+    
     totsum-=minans;
     if(totsum>maxans){
         cout<< totsum;
